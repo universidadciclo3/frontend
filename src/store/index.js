@@ -17,13 +17,13 @@ export default new Vuex.Store({
   },
   actions: {
     async cargarEstudiantes({ commit }) {
-      const peticion = await fetch('http://localhost:3000/estudiante');
+      const peticion = await fetch('https://backend-universidad16.herokuapp.com/estudiante');
       const data = await peticion.json();
       commit('setEstudiantes', data);
       console.log(data);
     },
     async registrarEstudiante({ commit }, objEstudiante) {
-      const peticion = await fetch('http://localhost:3000/estudiante', {
+      const peticion = await fetch('https://backend-universidad16.herokuapp.com/estudiante', {
         method: 'POST',//'PUT', 'DELETE'
         headers: {
           'Content-Type': 'application/json'
@@ -37,7 +37,7 @@ export default new Vuex.Store({
       commit('pushEstudiante', data);
     },
     async eliminarEstudiante({commit}, obj){
-      const peticion = await fetch('http://localhost:3000/estudiante', {
+      const peticion = await fetch('https://backend-universidad16.herokuapp.com/estudiante', {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json'
